@@ -1,32 +1,23 @@
-import time
-
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from datetime import date
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///announcements.sqlite"
 db = SQLAlchemy(app)
 
-
-
-class User(db.Model):
-    id = db.Column(db.Integer,primary_key=True)
-    name = db.Column(db.String,nullable=False)
-    surname = db.Column(db.String, nullable=False)
-    userType = db.Column(db.String,nullable=False)
-
 class Announcement(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150),nullable=False)
     description = db.Column(db.String(500),nullable=False)
-    date = db.Column(db.DateTime,nullable=False)
-    readerVisibility = db.Column(db.Boolean,nullable=False)
+    date = db.Column(db.DateTime, nullable=False)
+    readerVisibility = db.Column(db.Boolean)
 
-    def __init__(self,id, title, description, dateAdded, readerVisibility):
+    def __init__(self,id, title, description,date, readerVisibility):
         self.id = id
         self.title = title
         self.description = description
-        self.date = dateAdded
+        self.date = date
         self.readerVisibility = readerVisibility
 
 db.create_all()
@@ -37,38 +28,22 @@ def home():
     return render_template("index.html")
 
 @app.route('/reader')
-def reader_page():
-    return render_template("reader_main.html")
+def reader():
+    return render_template("reader.html")
 
 @app.route('/worker')
-def worker_page():
-    return render_template("worker_main.html")
+def worker():
+    return render_template("worker.html")
 
-
-@app.route('/worker_add_announcement')
-def worker_add_announcement():
-    return render_template("add_announcement.html")
-
-
-@app.route('/worker_get_announcements')
-def worker_get_announcements():
-    return render_template("get_announcements.html")
-
-@app.route('/reader_get_announcements')
-def reader_get_announcements():
-    return render_template("get_reader_announcements.html")
-
-
-@app.route('/worker_add_announcement', methods=['GET', 'POST'])
-def add_event():
-    print(time.strftime('%A %B, %d %Y %H:%M:%S'))
+@app.route('/worker/add_announcement', methods=['GET', 'POST'])
+def add_announcement():
     if request.method == 'POST':
         announcement = Announcement(id=request.form['id'], title=request.form['title'], description=request.form['description'],
-                                    date=time.strftime('%A %B, %d %Y %H:%M:%S'),readerVisibility= request.form['readerVisibility'])
+                                    date=date.today(),readerVisibility='readerVisibility' in request.form)
         db.session.add(announcement)
         db.session.commit()
-        return redirect(url_for('worker_page'))
-    return render_template('/worker',)
+        return redirect(url_for('worker'))
+    return render_template('add_announcement.html',)
 
 if __name__ == '__main__':
     app.run()

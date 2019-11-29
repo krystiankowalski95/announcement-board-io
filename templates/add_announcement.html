@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %}Add new announcement{% endblock %}
+{% block title %}Add Announcement{% endblock %}
 {% block head %}
     {{ super() }}
     <style>
@@ -12,17 +12,16 @@
             Id:
             <input type=number name=id value="{{ request.form.id }}">
         <p>
-            Title:
-            <input type=string name=title value="{{ request.form.title }}">
+            Announcement title:
+            <input type=text name=title value="{{ request.form.title }}">
         <p>
-            Description:
-            <input type=string name=description value="{{ request.form.description }}">
+            Announcement content:
+            <input type=text name=description value="{{ request.form.description }}">
         <p>
-            Coworkers visibile only:
-            <input type="checkbox" name="" value="{{ request.form.description }}">
+            Announcement visible only to coworkers
+            <input type=checkbox name=readerVisibility value="{{ request.form.readerVisibility }}">
         <p>
             <input type=submit value="Create">
-        <p>
-            <a href="{{ url_for('worker_page') }}">Return</a>
+            <a href="{{ url_for('worker') }}">Return</a>
   </form>
 {% endblock %}
