@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
-{% block title %}Coworker anouncements only{% endblock %}
+{% block title %}All anouncements{% endblock %}
 {% block head %}
     {{ super() }}
     <style>
     </style>
 {% endblock %}
 {% block body %}
-    <h1>Coworker anouncements</h1>
+    <h1>All anouncements</h1>
     <table class=announcements>
       <tr>
         <th>#
@@ -14,13 +14,11 @@
         <th>Content
         <th>Date Added
       {%- for announcement in announcements %}
-          {%- if announcement.readerVisibility == 0 %}
             <tr class=title>
                 <td>{{ announcement.id }}
                 <td>{{ announcement.title }}
                 <td>{{ announcement.description }}
                 <td>{{ announcement.date.strftime('%Y-%m-%d') }}
-          {% endif %}
       {%- endfor %}
     </table>
 {% endblock %}

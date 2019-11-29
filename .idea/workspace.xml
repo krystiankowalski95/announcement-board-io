@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04299efb-e4e8-47a8-8188-24f0e9be9957" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/worker.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/announcement-board-io.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/announcement-board-io.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/get_all_reader_announcements.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/announcements.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/announcements.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/announcements.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/add_announcement.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_announcement.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reader_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reader.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/worker_main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/get_announcements.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/get_announcements.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/get_reader_announcements.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/get_all_announcements.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reader.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reader.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/worker.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/worker.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +126,7 @@
       <workItem from="1575032239646" duration="1857000" />
       <workItem from="1575047046318" duration="1553000" />
       <workItem from="1575051258268" duration="880000" />
-      <workItem from="1575052142186" duration="3732000" />
+      <workItem from="1575052142186" duration="5720000" />
     </task>
     <servers />
   </component>
@@ -150,6 +148,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/announcement_board_io$app.coverage" NAME="app Coverage Results" MODIFIED="1575051767810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/announcement_board_io$announcement_board_io.coverage" NAME="announcement-board-io Coverage Results" MODIFIED="1575055882684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/announcement_board_io$announcement_board_io.coverage" NAME="announcement-board-io Coverage Results" MODIFIED="1575057822171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

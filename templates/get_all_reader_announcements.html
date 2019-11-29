@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
-{% block title %}Coworker anouncements only{% endblock %}
+{% block title %}Reader announcements{% endblock %}
 {% block head %}
     {{ super() }}
     <style>
     </style>
 {% endblock %}
 {% block body %}
-    <h1>Coworker anouncements</h1>
+    <h1>Reader announcements</h1>
     <table class=announcements>
       <tr>
         <th>#
@@ -14,7 +14,7 @@
         <th>Content
         <th>Date Added
       {%- for announcement in announcements %}
-          {%- if announcement.readerVisibility == 0 %}
+          {%- if announcement.readerVisibility == 1 %}
             <tr class=title>
                 <td>{{ announcement.id }}
                 <td>{{ announcement.title }}

@@ -45,5 +45,23 @@ def add_announcement():
         return redirect(url_for('worker'))
     return render_template('add_announcement.html',)
 
+@app.route('/worker/get_announcements')
+def get_announcements():
+    return render_template('get_announcements.html',
+                           announcements=Announcement.query.order_by(Announcement.id.desc()).all()
+                           )
+
+@app.route('/worker/get_all_announcements')
+def get_all_announcements():
+    return render_template('get_all_announcements.html',
+                           announcements=Announcement.query.order_by(Announcement.id.desc()).all()
+                           )
+
+@app.route('/reader/get_all_reader_announcements')
+def get_all_reader_announcements():
+    return render_template('get_all_reader_announcements.html',
+                           announcements=Announcement.query.order_by(Announcement.id.desc()).all()
+                           )
+
 if __name__ == '__main__':
     app.run()
