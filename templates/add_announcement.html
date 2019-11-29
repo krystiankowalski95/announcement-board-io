@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}Add new announcement{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+    </style>
+{% endblock %}
+{% block body %}
+    <h1>Add new announcement</h1>
+    <form action="" method=post>
+        <p>
+            Id:
+            <input type=number name=id value="{{ request.form.id }}">
+        <p>
+            Title:
+            <input type=string name=title value="{{ request.form.title }}">
+        <p>
+            Description:
+            <input type=string name=description value="{{ request.form.description }}">
+        <p>
+            Coworkers visibile only:
+            <input type="checkbox" name="" value="{{ request.form.description }}">
+        <p>
+            <input type=submit value="Create">
+        <p>
+            <a href="{{ url_for('worker_page') }}">Return</a>
+  </form>
+{% endblock %}
