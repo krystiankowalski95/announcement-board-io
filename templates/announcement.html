@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}{{ announcement.id }}{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+    </style>
+{% endblock %}
+{% block body %}
+    <h1>Announcement details {{ announcement.id }}</h1>
+      <p><a href={{ url_for('delete_announcement', id=announcement.id) }}>Delete</a></p>
+    <p><a href={{ url_for('edit_announcement', id=announcement.id) }}>Edit {{ announcement.id }}</a></p>
+{% endblock %}

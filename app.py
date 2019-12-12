@@ -57,11 +57,47 @@ def get_all_announcements():
                            announcements=Announcement.query.order_by(Announcement.id.desc()).all()
                            )
 
+@app.route('/worker/get_announcement/<id>')
+def get_announcement(id):
+    return render_template('announcement.html',
+                           announcement=Announcement.query.get_or_404(id)
+                           )
+
+@app.route('/worker/edit_announcement/<id>',  methods=['GET', 'POST'])
+def edit_announcement(id):
+    if request.method == 'POST':
+        announcement = Announcement.query.get_or_404(id)
+        announcement.id = request.form['id']
+        announcement.title = request.form['title']
+        announcement.description = request.form['description']
+        announcement.date = date.today()
+        announcement.readerVisibility = 'readerVisibility' in request.form
+        db.session.commit()
+        return redirect(url_for('worker'))
+    return render_template('edit_announcement.html',
+                           announcement=Announcement.query.get_or_404(id)
+                           )
+
 @app.route('/reader/get_all_reader_announcements')
 def get_all_reader_announcements():
     return render_template('get_all_reader_announcements.html',
                            announcements=Announcement.query.order_by(Announcement.id.desc()).all()
                            )
+
+@app.route('/worker/delete-announcement/<id>')
+def delete_announcement(id):
+    db.session.delete(Announcement.query.get_or_404(id))
+    db.session.commit()
+    return redirect(url_for('get_all_announcements'))
+
+@app.route('/worker/update-announcement/<id>')
+def update_announcement(id,Data):
+    announcemt = Announcement.query.get_or_404(id)
+    print(announcemt.data)
+    print(Data)
+
+    db.session.commit()
+    return redirect(url_for('get_announcement/<id>'))
 
 if __name__ == '__main__':
     app.run()

@@ -20,6 +20,7 @@
                 <td>{{ announcement.title }}
                 <td>{{ announcement.description }}
                 <td>{{ announcement.date.strftime('%Y-%m-%d') }}
+                <td><a href={{ url_for('get_announcement', id=announcement.id) }}>Szczegóły ogłoszenia {{ announcement.id }}</a>
           {% endif %}
       {%- endfor %}
     </table>
